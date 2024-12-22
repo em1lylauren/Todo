@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TaskModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/emilyhk/todolist_app/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/HelloController.java" beforeDir="false" />
+    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="Added misc files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TaskModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TaskModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -59,6 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -95,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734891729884</updated>
-      <workItem from="1734891730916" duration="1404000" />
+      <workItem from="1734891730916" duration="4362000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -105,7 +93,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734892083553</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added basic file structure for project, connected MVC components">
+      <option name="closed" value="true" />
+      <created>1734893186755</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734893186755</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added misc files">
+      <option name="closed" value="true" />
+      <created>1734893213711</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734893213711</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +117,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Added basic file structure for project, connected MVC components" />
+    <MESSAGE value="Added misc files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added misc files" />
   </component>
 </project>

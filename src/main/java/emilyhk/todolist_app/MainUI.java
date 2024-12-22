@@ -10,6 +10,12 @@ public class MainUI extends StackPane {
         TDController controller = new TDController();
         InteractionModel iModel = new InteractionModel();
 
+        // Debug stuff
+        model.addTask("Test1", "This is a description.");
+        model.addTask("Test2", "This is a description.");
+        model.addTask("Test3", "This is a description.");
+        model.completeTask(model.getTasks().get(1));
+
         controller.setModel(model);
         controller.setInteractionModel(iModel);
 

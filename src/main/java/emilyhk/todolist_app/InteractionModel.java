@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InteractionModel {
-    List<TDSubscriber> subs;
+    private List<TDSubscriber> subs;
 
     public InteractionModel() {
-        subs = new ArrayList<TDSubscriber>();
+        subs = new ArrayList<>();
     }
 
     public void addSubscriber(TDSubscriber sub) {
