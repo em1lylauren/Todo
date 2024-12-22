@@ -73,4 +73,18 @@ public class Task {
     public boolean contains(double x, double y) {
         return x >= this.x && x <= this.x + TDView.TASK_WIDTH && y >= this.y && y <= this.y + TDView.TASK_HEIGHT;
     }
+
+    public boolean checkboxContains(double x, double y) {
+
+        System.out.println("X: " + x + " Y: " + y);
+        System.out.println("Checkbox x bounds: (" + (TDView.TASK_WIDTH - TDView.BOX_PADDING - TDView.CHECKBOX_WIDTH) + ", " + (TDView.TASK_WIDTH - TDView.BOX_PADDING) + ")");
+        System.out.println("Checkbox y bounds: (" + ((TDView.TASK_HEIGHT / 2) - TDView.CHECKBOX_WIDTH) + ", " + (this.y + (TDView.TASK_HEIGHT / 2)) + ")");
+
+        if (x >= TDView.TASK_WIDTH - TDView.BOX_PADDING - TDView.CHECKBOX_WIDTH && x <= TDView.TASK_WIDTH - TDView.BOX_PADDING) {
+            if (y >= (TDView.TASK_HEIGHT / 2) - TDView.CHECKBOX_WIDTH && y <= this.y + (TDView.TASK_HEIGHT / 2)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

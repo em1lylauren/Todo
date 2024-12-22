@@ -25,12 +25,18 @@ public class TDController {
     }
 
     public void handlePressed(MouseEvent e) {
-
     }
 
     public void handleReleased(MouseEvent e) {
-        double baseline = TDView.BOX_PADDING + 10 + TDView.TF_HEIGHT + TDView.BOX_PADDING + (model.getTasks().size() * (TDView.TASK_HEIGHT + TDView.BOX_PADDING));
-        model.addTask("Task", "This is a description", 0, baseline);
+        double adjustedX = e.getX() - iModel.getViewLeft();
+        double adjustedY = e.getY() - iModel.getViewTop();
+
+        if (iModel.getSelected() != null && iModel.getSelected().checkboxContains(adjustedX, adjustedY)) {
+            iModel.getSelected().setCompleted(!iModel.getSelected().isCompleted());
+        } else {
+            double baseline = TDView.BOX_PADDING + 10 + TDView.TF_HEIGHT + TDView.BOX_PADDING + (model.getTasks().size() * (TDView.TASK_HEIGHT + TDView.BOX_PADDING));
+            model.addTask("Task", "This is a description", 0, baseline);
+        }
     }
 
     public void handleDragged(MouseEvent e) {
@@ -38,7 +44,10 @@ public class TDController {
     }
 
     public void handleMoved(MouseEvent e) {
-        if (model.contains(e.getX() - iModel.getViewLeft(), e.getY() - iModel.getViewTop())) {
+        double adjustedX = e.getX() - iModel.getViewLeft();
+        double adjustedY = e.getY() - iModel.getViewTop();
+
+        if (model.contains(adjustedX, adjustedY)) {
             iModel.setSelected(model.whichContains(e.getX() - iModel.getViewLeft(), e.getY() - iModel.getViewTop()));
         } else iModel.clearSelection();
     }
