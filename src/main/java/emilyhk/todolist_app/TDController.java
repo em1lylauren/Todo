@@ -2,6 +2,7 @@ package emilyhk.todolist_app;
 
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 
 public class TDController {
     private TaskModel model;
@@ -32,6 +33,11 @@ public class TDController {
 
     public void handleDragged(MouseEvent e) {
 
+    }
+
+    public void handleScrolled(ScrollEvent e) {
+        iModel.setViewLeft(iModel.getViewLeft() + e.getDeltaX());
+        iModel.setViewTop(iModel.getViewTop() + e.getDeltaY());
     }
 }
 

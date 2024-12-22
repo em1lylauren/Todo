@@ -11,6 +11,8 @@ public class TDView extends StackPane implements TDSubscriber {
     private GraphicsContext gc;
     private Canvas canvas;
 
+    private double TF_WIDTH = 310;
+    private double TF_HEIGHT = 80;
     private double TASK_PADDING = 20;
     private double TASK_WIDTH = 400;
     private double TASK_HEIGHT = 200;
@@ -36,21 +38,53 @@ public class TDView extends StackPane implements TDSubscriber {
         setOnMouseReleased(controller::handleReleased);
         setOnMousePressed(controller::handlePressed);
         setOnMouseDragged(controller::handleDragged);
+        setOnScroll(controller::handleScrolled);
     }
 
     public void draw() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         gc.save();
-        gc.translate((canvas.getHeight() / 2) - (TASK_HEIGHT / 2), BOX_PADDING);
+        gc.translate((canvas.getHeight() / 2) - (TASK_HEIGHT / 2) + iModel.getViewLeft(), BOX_PADDING + iModel.getViewTop());
 
-        double baseline = 0;
+        // Draw text field header
+        drawHeader();
+
+        // Draw tasks
+        double baseline = TF_HEIGHT + TASK_PADDING + BOX_PADDING;
         for (Task t : model.getTasks()) {
             drawTask(t, 0, baseline);
             baseline += BOX_PADDING + TASK_HEIGHT;
         }
 
         gc.restore();
+
+        // Debug: viewleft and viewtop values
+        gc.setStroke(Color.BLACK);
+        gc.strokeText("Viewleft: " + iModel.getViewLeft(), 20, 20);
+        gc.strokeText("Viewtop: " + iModel.getViewTop(), 20, 40);
+    }
+
+    public void drawHeader() {
+        gc.setStroke(Color.BLACK);
+        gc.setFill(Color.LIGHTBLUE);
+
+        gc.strokeText("Add a task...", 0, 0);
+        gc.fillRect(0, 10, TF_WIDTH, TF_HEIGHT);
+        gc.strokeRect(0, 10, TF_WIDTH, TF_HEIGHT);
+
+        // Drawing the plus box (to add a task)
+        double width = TASK_WIDTH - TF_WIDTH - TASK_PADDING;
+        gc.setFill(Color.LIGHTPINK);
+        gc.fillRect(TF_WIDTH + TASK_PADDING, 10, width, TF_HEIGHT);
+        gc.strokeRect(TF_WIDTH + TASK_PADDING, 10, width, TF_HEIGHT);
+
+        double addWidth = TF_WIDTH + TASK_PADDING + (width / 2);
+        double addHeight = (TF_HEIGHT / 2);
+        gc.setStroke(Color.DEEPPINK);
+        gc.strokeLine(addWidth, addHeight + 25, addWidth, addHeight - 5);
+        gc.strokeLine(addWidth + 15, addHeight + 10, addWidth - 15, addHeight + 10);
+
     }
 
     public void drawTask(Task t, double x, double y) {

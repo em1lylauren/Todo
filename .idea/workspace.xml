@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="Added misc files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/Task.java" afterDir="false" />
+    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="- Added task class to represent a single task&#10;- UI displays tasks (roughly) using constants&#10;- No user interaction yet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TaskModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TaskModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734891729884</updated>
-      <workItem from="1734891730916" duration="4362000" />
+      <workItem from="1734891730916" duration="7080000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -109,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734893213711</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Added task class to represent a single task&#10;- UI displays tasks (roughly) using constants&#10;- No user interaction yet">
+      <option name="closed" value="true" />
+      <created>1734896318522</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734896318522</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +125,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Added basic file structure for project, connected MVC components" />
     <MESSAGE value="Added misc files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added misc files" />
+    <MESSAGE value="- Added task class to represent a single task&#10;- UI displays tasks (roughly) using constants&#10;- No user interaction yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added task class to represent a single task&#10;- UI displays tasks (roughly) using constants&#10;- No user interaction yet" />
   </component>
 </project>
