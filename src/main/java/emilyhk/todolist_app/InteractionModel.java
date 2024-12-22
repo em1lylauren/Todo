@@ -6,17 +6,26 @@ import java.util.List;
 public class InteractionModel {
     private List<TDSubscriber> subs;
     private double viewLeft, viewTop;
+    private Task selected;
 
     public InteractionModel() {
         subs = new ArrayList<>();
+
+        viewTop = TDView.BOX_PADDING;
+        selected = null;
     }
 
-    public double getViewLeft() {
-        return viewLeft;
+    public Task getSelected() {
+        return selected;
     }
 
-    public void setViewLeft(double viewLeft) {
-        this.viewLeft = viewLeft;
+    public void setSelected(Task selected) {
+        this.selected = selected;
+        notifySubscribers();
+    }
+
+    public void clearSelection() {
+        selected = null;
         notifySubscribers();
     }
 
@@ -26,6 +35,15 @@ public class InteractionModel {
 
     public void setViewTop(double viewTop) {
         this.viewTop = viewTop;
+        notifySubscribers();
+    }
+
+    public double getViewLeft() {
+        return viewLeft;
+    }
+
+    public void setViewLeft(double viewLeft) {
+        this.viewLeft = viewLeft;
         notifySubscribers();
     }
 

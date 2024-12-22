@@ -12,8 +12,8 @@ public class TaskModel {
         tasks = new ArrayList<>();
     }
 
-    public void addTask(String title, String description) {
-        Task t = new Task(title, description);
+    public void addTask(String title, String description, double x, double baseline) {
+        Task t = new Task(title, description, x, baseline);
         tasks.add(t);
         notifySubscribers();
     }
@@ -40,6 +40,20 @@ public class TaskModel {
 
     public List<Task> getTasks() {
         return tasks;
+    }
+
+    public boolean contains(double x, double y) {
+        for (Task t : tasks) {
+            if (t.contains(x, y)) return true;
+        }
+        return false;
+    }
+
+    public Task whichContains(double x, double y) {
+        for (Task t : tasks) {
+            if (t.contains(x, y)) return t;
+        }
+        return null;
     }
 
     public void addSubscriber(TDSubscriber sub) {

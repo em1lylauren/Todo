@@ -13,7 +13,8 @@ public class TDController {
     }
     private state currentState = state.READY;
 
-    public TDController() {}
+    public TDController() {
+    }
 
     public void setModel(TaskModel model) {
         this.model = model;
@@ -28,15 +29,21 @@ public class TDController {
     }
 
     public void handleReleased(MouseEvent e) {
-
+        double baseline = TDView.BOX_PADDING + 10 + TDView.TF_HEIGHT + TDView.BOX_PADDING + (model.getTasks().size() * (TDView.TASK_HEIGHT + TDView.BOX_PADDING));
+        model.addTask("Task", "This is a description", 0, baseline);
     }
 
     public void handleDragged(MouseEvent e) {
 
     }
 
+    public void handleMoved(MouseEvent e) {
+        if (model.contains(e.getX() - iModel.getViewLeft(), e.getY() - iModel.getViewTop())) {
+            iModel.setSelected(model.whichContains(e.getX() - iModel.getViewLeft(), e.getY() - iModel.getViewTop()));
+        } else iModel.clearSelection();
+    }
+
     public void handleScrolled(ScrollEvent e) {
-        iModel.setViewLeft(iModel.getViewLeft() + e.getDeltaX());
         iModel.setViewTop(iModel.getViewTop() + e.getDeltaY());
     }
 }

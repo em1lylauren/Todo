@@ -11,14 +11,14 @@ public class TDView extends StackPane implements TDSubscriber {
     private GraphicsContext gc;
     private Canvas canvas;
 
-    private double TF_WIDTH = 310;
-    private double TF_HEIGHT = 80;
-    private double TASK_PADDING = 20;
-    private double TASK_WIDTH = 400;
-    private double TASK_HEIGHT = 200;
-    private double BOX_PADDING = 50;
-    private double CHECKBOX_WIDTH = 20;
-    private double TEXT_SIZE = 15;
+    public static final double TF_WIDTH = 310;
+    public static final double TF_HEIGHT = 80;
+    public static final double TASK_PADDING = 20;
+    public static final double TASK_WIDTH = 400;
+    public static final double TASK_HEIGHT = 200;
+    public static final double BOX_PADDING = 50;
+    public static final double CHECKBOX_WIDTH = 20;
+    public static final double TEXT_SIZE = 15;
 
     public TDView() {
         canvas = new Canvas(1000, 800);
@@ -32,12 +32,14 @@ public class TDView extends StackPane implements TDSubscriber {
 
     public void setInteractionModel(InteractionModel iModel) {
         this.iModel = iModel;
+        iModel.setViewLeft((canvas.getHeight() / 2) - (TASK_HEIGHT / 2));
     }
 
     public void initEvents(TDController controller) {
         setOnMouseReleased(controller::handleReleased);
         setOnMousePressed(controller::handlePressed);
         setOnMouseDragged(controller::handleDragged);
+        setOnMouseMoved(controller::handleMoved);
         setOnScroll(controller::handleScrolled);
     }
 
@@ -45,24 +47,21 @@ public class TDView extends StackPane implements TDSubscriber {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         gc.save();
-        gc.translate((canvas.getHeight() / 2) - (TASK_HEIGHT / 2) + iModel.getViewLeft(), BOX_PADDING + iModel.getViewTop());
+        gc.translate(iModel.getViewLeft(), iModel.getViewTop());
 
         // Draw text field header
         drawHeader();
 
         // Draw tasks
-        double baseline = TF_HEIGHT + TASK_PADDING + BOX_PADDING;
         for (Task t : model.getTasks()) {
-            drawTask(t, 0, baseline);
-            baseline += BOX_PADDING + TASK_HEIGHT;
+            drawTask(t);
         }
 
         gc.restore();
 
-        // Debug: viewleft and viewtop values
+        // Debug
         gc.setStroke(Color.BLACK);
-        gc.strokeText("Viewleft: " + iModel.getViewLeft(), 20, 20);
-        gc.strokeText("Viewtop: " + iModel.getViewTop(), 20, 40);
+        gc.strokeText("Viewtop: " + iModel.getViewTop(), 20, 20);
     }
 
     public void drawHeader() {
@@ -87,13 +86,14 @@ public class TDView extends StackPane implements TDSubscriber {
 
     }
 
-    public void drawTask(Task t, double x, double y) {
+    public void drawTask(Task t) {
         gc.save();
-        gc.translate(x, y);
+        gc.translate(t.getX(), t.getY());
 
         // Draw task box
         gc.setStroke(Color.BLACK);
-        gc.setFill(Color.LIGHTGRAY);
+        if (iModel.getSelected() == t) gc.setFill(t.getHoverColor());
+        else gc.setFill(t.getDefaultColor());
         gc.fillRect(0, 0, TASK_WIDTH, TASK_HEIGHT);
         gc.strokeRect(0, 0, TASK_WIDTH, TASK_HEIGHT);
 

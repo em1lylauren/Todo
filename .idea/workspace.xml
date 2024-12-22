@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="- Added task class to represent a single task&#10;- UI displays tasks (roughly) using constants&#10;- No user interaction yet">
+    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="- Header at top to add tasks (still no interaction with this)&#10;- User can scroll">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/MainUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TaskModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TaskModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +47,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Unnamed.executor": "Run",
+    "Application.Unnamed.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/emlhk/IdeaProjects/job346",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734891729884</updated>
-      <workItem from="1734891730916" duration="7080000" />
+      <workItem from="1734891730916" duration="11733000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -115,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734896318522</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- Header at top to add tasks (still no interaction with this)&#10;- User can scroll">
+      <option name="closed" value="true" />
+      <created>1734899098658</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734899098658</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +138,7 @@
     <MESSAGE value="Added basic file structure for project, connected MVC components" />
     <MESSAGE value="Added misc files" />
     <MESSAGE value="- Added task class to represent a single task&#10;- UI displays tasks (roughly) using constants&#10;- No user interaction yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added task class to represent a single task&#10;- UI displays tasks (roughly) using constants&#10;- No user interaction yet" />
+    <MESSAGE value="- Header at top to add tasks (still no interaction with this)&#10;- User can scroll" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Header at top to add tasks (still no interaction with this)&#10;- User can scroll" />
   </component>
 </project>
