@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="Checkbox clicking works (slow?)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/Button.java" afterDir="false" />
+    <list default="true" id="1bcae0d8-d7ca-4434-b4b3-11a1db153464" name="Changes" comment="Add button creates a new task (has default color, hovered and pressed)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TextField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/InteractionModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emilyhk/todolist_app/TDController.java" afterDir="false" />
@@ -97,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734891729884</updated>
       <workItem from="1734891730916" duration="12847000" />
-      <workItem from="1734905824527" duration="3771000" />
+      <workItem from="1734905824527" duration="10149000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -155,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734909567331</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add button creates a new task (has default color, hovered and pressed)">
+      <option name="closed" value="true" />
+      <created>1734915929978</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1734915929978</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +177,7 @@
     <MESSAGE value="- Header at top to add tasks (still no interaction with this)&#10;- User can scroll" />
     <MESSAGE value="- Can hover on tasks to change their colour&#10;- Task creation on click" />
     <MESSAGE value="Checkbox clicking works (slow?)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checkbox clicking works (slow?)" />
+    <MESSAGE value="Add button creates a new task (has default color, hovered and pressed)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add button creates a new task (has default color, hovered and pressed)" />
   </component>
 </project>

@@ -7,6 +7,7 @@ public class InteractionModel {
     private List<TDSubscriber> subs;
     private double viewLeft, viewTop;
     private Task selected;
+    private TextField selectedField;
     private Button selectedButton;
     private Button pressedButton;
 
@@ -14,12 +15,17 @@ public class InteractionModel {
         subs = new ArrayList<>();
         viewTop = TDView.BOX_PADDING;
         selected = null;
+        selectedField = null;
         selectedButton = null;
         pressedButton = null;
     }
 
     public Task getSelected() {
         return selected;
+    }
+
+    public TextField getSelectedField() {
+        return selectedField;
     }
 
     public Button getSelectedButton() {
@@ -32,6 +38,16 @@ public class InteractionModel {
 
     public void setSelected(Task selected) {
         this.selected = selected;
+        notifySubscribers();
+    }
+
+    public void setSelectedField(TextField selectedField) {
+        this.selectedField = selectedField;
+        notifySubscribers();
+    }
+
+    public void setFieldSelected(boolean b) {
+        this.selectedField.setSelected(b);
         notifySubscribers();
     }
 
@@ -50,6 +66,11 @@ public class InteractionModel {
         notifySubscribers();
     }
 
+    public void clearSelectedField() {
+        selectedField = null;
+        notifySubscribers();
+    }
+
     public void clearButtonSelection() {
         selectedButton = null;
         notifySubscribers();
@@ -65,7 +86,9 @@ public class InteractionModel {
     }
 
     public void setViewTop(double viewTop) {
-        this.viewTop = viewTop;
+        if (viewTop <= 50) {
+            this.viewTop = viewTop;
+        } else this.viewTop = 50;
         notifySubscribers();
     }
 

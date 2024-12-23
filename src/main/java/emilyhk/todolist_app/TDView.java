@@ -41,6 +41,8 @@ public class TDView extends StackPane implements TDSubscriber {
         setOnMouseDragged(controller::handleDragged);
         setOnMouseMoved(controller::handleMoved);
         setOnScroll(controller::handleScrolled);
+        setOnKeyPressed(controller::handleKeyPressed);
+        setOnKeyReleased(controller::handleKeyReleased);
     }
 
     public void draw() {
@@ -60,20 +62,28 @@ public class TDView extends StackPane implements TDSubscriber {
         gc.restore();
 
         // Debug
-        gc.setStroke(Color.BLACK);
-        gc.strokeText("Viewtop: " + iModel.getViewTop(), 20, 20);
+        gc.setFill(Color.BLACK);
+        gc.fillText("Viewtop: " + iModel.getViewTop(), 20, 20);
     }
 
     public void drawHeader() {
-        gc.setStroke(Color.BLACK);
-        gc.setFill(Color.LIGHTBLUE);
-
-        gc.strokeText("Add a task...", 0, 0);
-        gc.fillRect(0, 10, TF_WIDTH, TF_HEIGHT);
-        gc.strokeRect(0, 10, TF_WIDTH, TF_HEIGHT);
-
+        gc.setFill(Color.BLACK);
+        gc.fillText("Add a task...", 0, 0);
+        drawTextField(model.getTaskField());
         // Drawing the button to add a task
         drawButton(model.getAddTaskButton());
+    }
+
+    public void drawTextField(TextField tf) {
+        if (iModel.getSelectedField() == tf) {
+            gc.setFill(tf.getHoverColor());
+        } else {
+            gc.setFill(tf.getDefaultColor());
+        }
+        gc.fillRect(tf.getX(), tf.getY(), tf.getWidth(), tf.getHeight());
+        gc.strokeRect(tf.getX(), tf.getY(),tf.getWidth(), tf.getHeight());
+        gc.setFill(Color.BLACK);
+        gc.fillText(tf.getText(), tf.getX() + TASK_PADDING, tf.getY() + TASK_PADDING * 2);
     }
 
     public void drawButton(Button b) {
@@ -103,8 +113,9 @@ public class TDView extends StackPane implements TDSubscriber {
         gc.strokeRect(0, 0, TASK_WIDTH, TASK_HEIGHT);
 
         // Draw task title and description
-        gc.strokeText(t.getTitle(), 0 + TASK_PADDING, 20 + TASK_PADDING, TASK_WIDTH);
-        gc.strokeText(t.getDescription(), 0 + TASK_PADDING, 40 + TASK_PADDING, TASK_WIDTH);
+        gc.setFill(Color.BLACK);
+        gc.fillText(t.getTitle(), 0 + TASK_PADDING, 20 + TASK_PADDING, TASK_WIDTH);
+        gc.fillText(t.getDescription(), 0 + TASK_PADDING, 40 + TASK_PADDING, TASK_WIDTH);
 
         // Draw checkbox
         gc.translate(TASK_WIDTH - BOX_PADDING, TASK_HEIGHT / 2);
