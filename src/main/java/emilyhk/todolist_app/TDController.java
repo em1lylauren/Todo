@@ -75,7 +75,7 @@ public class TDController {
             case PRESSED -> {
                 double baseline = TDView.BOX_PADDING + 10 + TDView.TF_HEIGHT + TDView.BOX_PADDING + (model.getTasks().size() * (TDView.TASK_HEIGHT + TDView.BOX_PADDING));
                 String title = model.getTaskField().getRawText();
-                model.addTask(title, "This is a description", 0, baseline);
+                if (!title.isEmpty()) model.addTask(title, "This is a description", 0, baseline);
                 iModel.clearButtonPressed();
                 model.clearText(model.getTaskField());
                 currentState = state.READY;
