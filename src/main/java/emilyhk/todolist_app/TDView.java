@@ -72,18 +72,23 @@ public class TDView extends StackPane implements TDSubscriber {
         gc.fillRect(0, 10, TF_WIDTH, TF_HEIGHT);
         gc.strokeRect(0, 10, TF_WIDTH, TF_HEIGHT);
 
-        // Drawing the plus box (to add a task)
-        double width = TASK_WIDTH - TF_WIDTH - TASK_PADDING;
-        gc.setFill(Color.LIGHTPINK);
-        gc.fillRect(TF_WIDTH + TASK_PADDING, 10, width, TF_HEIGHT);
-        gc.strokeRect(TF_WIDTH + TASK_PADDING, 10, width, TF_HEIGHT);
+        // Drawing the button to add a task
+        drawButton(model.getAddTaskButton());
+    }
 
-        double addWidth = TF_WIDTH + TASK_PADDING + (width / 2);
+    public void drawButton(Button b) {
+        if (iModel.getPressedButton() == b) gc.setFill(b.getPressedColor());
+        else if (iModel.getSelectedButton() == b) gc.setFill(b.getHoverColor());
+        else gc.setFill(b.getDefaultColor());
+
+        gc.fillRect(b.getX(), b.getY(), b.getWidth(), b.getHeight());
+        gc.strokeRect(b.getX(), b.getY(), b.getWidth(), b.getHeight());
+
+        double addWidth = TF_WIDTH + TASK_PADDING + (b.getWidth() / 2);
         double addHeight = (TF_HEIGHT / 2);
-        gc.setStroke(Color.DEEPPINK);
+        gc.setStroke(b.getPressedColor());
         gc.strokeLine(addWidth, addHeight + 25, addWidth, addHeight - 5);
         gc.strokeLine(addWidth + 15, addHeight + 10, addWidth - 15, addHeight + 10);
-
     }
 
     public void drawTask(Task t) {

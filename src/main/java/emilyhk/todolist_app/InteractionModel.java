@@ -7,16 +7,27 @@ public class InteractionModel {
     private List<TDSubscriber> subs;
     private double viewLeft, viewTop;
     private Task selected;
+    private Button selectedButton;
+    private Button pressedButton;
 
     public InteractionModel() {
         subs = new ArrayList<>();
-
         viewTop = TDView.BOX_PADDING;
         selected = null;
+        selectedButton = null;
+        pressedButton = null;
     }
 
     public Task getSelected() {
         return selected;
+    }
+
+    public Button getSelectedButton() {
+        return selectedButton;
+    }
+
+    public Button getPressedButton() {
+        return pressedButton;
     }
 
     public void setSelected(Task selected) {
@@ -24,8 +35,28 @@ public class InteractionModel {
         notifySubscribers();
     }
 
-    public void clearSelection() {
+    public void setSelected(Button b) {
+        this.selectedButton = b;
+        notifySubscribers();
+    }
+
+    public void setPressed(Button b) {
+        this.pressedButton = b;
+        notifySubscribers();
+    }
+
+    public void clearTaskSelection() {
         selected = null;
+        notifySubscribers();
+    }
+
+    public void clearButtonSelection() {
+        selectedButton = null;
+        notifySubscribers();
+    }
+
+    public void clearButtonPressed() {
+        pressedButton = null;
         notifySubscribers();
     }
 

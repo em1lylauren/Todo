@@ -6,10 +6,12 @@ import java.util.List;
 public class TaskModel {
     private List<TDSubscriber> subs;
     private List<Task> tasks;
+    private Button addTaskButton;
 
     public TaskModel() {
         subs = new ArrayList<>();
         tasks = new ArrayList<>();
+        addTaskButton = new Button(TDView.TF_WIDTH + TDView.TASK_PADDING, 10, TDView.TASK_WIDTH - TDView.TF_WIDTH - TDView.TASK_PADDING, TDView.TF_HEIGHT, Button.ButtonType.ADD);
     }
 
     public void addTask(String title, String description, double x, double baseline) {
@@ -42,18 +44,30 @@ public class TaskModel {
         return tasks;
     }
 
-    public boolean contains(double x, double y) {
+    public Button getAddTaskButton() {
+        return addTaskButton;
+    }
+
+    public boolean taskContains(double x, double y) {
         for (Task t : tasks) {
             if (t.contains(x, y)) return true;
         }
         return false;
     }
 
-    public Task whichContains(double x, double y) {
+    public Task whichTaskContains(double x, double y) {
         for (Task t : tasks) {
             if (t.contains(x, y)) return t;
         }
         return null;
+    }
+
+    public boolean buttonContains(double x, double y) {
+        return addTaskButton.contains(x, y);
+    }
+
+    public Button getAddButton() {
+        return addTaskButton;
     }
 
     public void addSubscriber(TDSubscriber sub) {

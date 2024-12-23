@@ -9,7 +9,8 @@ public class TDController {
     private InteractionModel iModel;
 
     private enum state {
-        READY
+        READY,
+        PRESSED
     }
     private state currentState = state.READY;
 
@@ -25,17 +26,36 @@ public class TDController {
     }
 
     public void handlePressed(MouseEvent e) {
+        double adjustedX = e.getX() - iModel.getViewLeft();
+        double adjustedY = e.getY() - iModel.getViewTop();
+
+        switch (currentState) {
+            case READY -> {
+                if (model.buttonContains(adjustedX, adjustedY)) {
+                    iModel.setPressed(model.getAddButton());
+                    currentState = state.PRESSED;
+                } else iModel.clearButtonPressed();
+            }
+        }
     }
 
     public void handleReleased(MouseEvent e) {
         double adjustedX = e.getX() - iModel.getViewLeft();
         double adjustedY = e.getY() - iModel.getViewTop();
 
-        if (iModel.getSelected() != null && iModel.getSelected().checkboxContains(adjustedX, adjustedY)) {
-            iModel.getSelected().setCompleted(!iModel.getSelected().isCompleted());
-        } else {
-            double baseline = TDView.BOX_PADDING + 10 + TDView.TF_HEIGHT + TDView.BOX_PADDING + (model.getTasks().size() * (TDView.TASK_HEIGHT + TDView.BOX_PADDING));
-            model.addTask("Task", "This is a description", 0, baseline);
+        switch (currentState) {
+            case READY -> {
+                if (iModel.getSelected() != null && iModel.getSelected().checkboxContains(adjustedX, adjustedY)) {
+                    iModel.getSelected().setCompleted(!iModel.getSelected().isCompleted());
+                }
+            }
+
+            case PRESSED -> {
+                double baseline = TDView.BOX_PADDING + 10 + TDView.TF_HEIGHT + TDView.BOX_PADDING + (model.getTasks().size() * (TDView.TASK_HEIGHT + TDView.BOX_PADDING));
+                model.addTask("Task", "This is a description", 0, baseline);
+                iModel.clearButtonPressed();
+                currentState = state.READY;
+            }
         }
     }
 
@@ -47,9 +67,17 @@ public class TDController {
         double adjustedX = e.getX() - iModel.getViewLeft();
         double adjustedY = e.getY() - iModel.getViewTop();
 
-        if (model.contains(adjustedX, adjustedY)) {
-            iModel.setSelected(model.whichContains(e.getX() - iModel.getViewLeft(), e.getY() - iModel.getViewTop()));
-        } else iModel.clearSelection();
+        switch (currentState) {
+            case READY -> {
+                if (model.taskContains(adjustedX, adjustedY)) {
+                    iModel.setSelected(model.whichTaskContains(e.getX() - iModel.getViewLeft(), e.getY() - iModel.getViewTop()));
+                } else iModel.clearTaskSelection();
+
+                if (model.buttonContains(adjustedX, adjustedY)) {
+                    iModel.setSelected(model.getAddButton());
+                } else iModel.clearButtonSelection();
+            }
+        }
     }
 
     public void handleScrolled(ScrollEvent e) {
